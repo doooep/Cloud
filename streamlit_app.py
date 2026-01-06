@@ -11,6 +11,7 @@ try:
     BASE_DIR = Path(__file__).parent
 except:
     BASE_DIR = Path.cwd()
+APP_VERSION = "v2.2"
 
 DATA_DIR = BASE_DIR / "data"
 BACKUP_DIR = DATA_DIR / "backups"
@@ -508,7 +509,22 @@ with st.sidebar:
             st.error(f"Error: {e}")
     
     st.markdown("---")
-    st.caption("v2.1 - Dark Mode Fixed")
+    st.markdown(
+         f"""
+        <div style="text-align:center; margin-top:8px;">
+            <span style="
+                display:inline-block;
+                padding:3px 12px;
+                border-radius:999px;
+                background-color:rgba(127, 127, 127, 0.2);
+                font-size:0.8rem;
+             ">
+                {APP_VERSION}
+             </span>
+         </div>
+    """,
+    unsafe_allow_html=True,
+     )
 
 
 # === MAIN APP ===
@@ -1219,9 +1235,12 @@ with tab6:
 
 # === FOOTER ===
 st.markdown("---")
-st.markdown('''
+st.markdown(
+    f"""
     <div style="text-align: center; opacity: 0.7; padding: 20px;">
-        🏪 <strong>Business Inventory Tracker</strong> v2.1<br>
+        🏪 <strong>Business Inventory Tracker</strong> {APP_VERSION}<br>
         <small>Works in Light & Dark Mode</small>
     </div>
-''', unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True,
+)
